@@ -1,0 +1,16 @@
+.vs/
+out/
+build/
+project.4coder
+*.cache
+*.exe
+*.obj
+*.pdb
+*.evoa
+#*
+
+0
+Engine/src/exported_functions.h
+
+output_performance.json
+build.bat
