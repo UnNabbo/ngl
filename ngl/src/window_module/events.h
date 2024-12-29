@@ -1,0 +1,22 @@
+enum event_flags{
+	NGL_EVENT_NULL = 0,
+	
+	NGL_EVENT_WINDOW_CLOSE,
+	NGL_EVENT_WINDOW_RESIZE,
+
+	NGL_EVENT_CATEGORY_WINDOW = BIT(30),
+	NGL_EVENT_CATEGORY_INPUT = BIT(31),
+	
+	NGL_EVENT_CATEGORY_MASK = NGL_EVENT_CATEGORY_INPUT >> 1 - NGL_EVENT_CATEGORY_WINDOW,
+};
+
+
+struct event{
+	u32 Flag;
+	
+	union{
+		struct {
+			s32 Width, Height;
+		};
+	};
+};

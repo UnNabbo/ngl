@@ -42,6 +42,11 @@ INLINE memory_arena ArenaAllocate(u32 Size) {
 	return {Size, Data, 0};
 }
 
+
+INLINE memory_arena ArenaAllocate(u32 Size, u8* Data) {
+	return {Size, Data, 0};
+}
+
 bool IsPowerOfTwo(u64 x) {
 	return (x & (x-1)) == 0;
 }

@@ -63,4 +63,3 @@
 #define VEC2_EXPAND(v) v.x, v.y
 #define VEC3_EXPAND(v) v.x, v.y, v.z
 #define VEC4_EXPAND(v) v.x, v.y, v.z, v.w
-#define UVS_EXPAND(v)  v.Left, v.Top, v.Right, v.Bottom

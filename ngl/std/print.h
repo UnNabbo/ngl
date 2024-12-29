@@ -135,10 +135,6 @@ int f32_to_char_ptr(f32 value, char* dest) { return f64_to_char_ptr((f64)value, 
 //
 
 #ifdef _WIN64
-extern "C" {
-	__declspec(dllimport) s32 WriteConsoleA(void* handle, const void* buff, s32 len, s32* chars_written, void* reserved);
-	__declspec(dllimport) void* GetStdHandle(u32 nStdHandle);
-}
 
 int __buffer_index = 0;
 const int __BUFF_SIZE = 0xFF;
@@ -146,13 +142,13 @@ char __print_buff[__BUFF_SIZE] = "";
 inline void flush_to_stdout() {
 	void* handle = GetStdHandle((s32) - 11);  // output handle
 	s32 out;
-	WriteConsoleA(handle, __print_buff, __buffer_index, &out, null);
+	WriteConsoleA(handle, __print_buff, __buffer_index, (LPDWORD)&out, null);
     __buffer_index = 0;
 }
 inline void write_to_console(const char* buff, u32 len) {
 	void* handle = GetStdHandle((s32) - 11);  // output handle
 	s32 out;
-	WriteConsoleA(handle, buff, len, &out, null);
+	WriteConsoleA(handle, buff, len, (LPDWORD)&out, null);
 }
 #endif
 
